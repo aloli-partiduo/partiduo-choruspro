@@ -4,10 +4,10 @@ require "../spec_helper"
 
 # Traductions des écrans de l'extension (ADR-005 D7) : chaque route de
 # `/ext/CHORUSPRO/` servie en `GET` (liste tirée du routeur de Marten),
-# obtenue en fr, en et nl par un administrateur, identifiants enregistrés,
-# sur un brouillon, une facture prête, une facture déposée suspendue, une
-# facture mise en paiement, une facture au dépôt sans réponse et une
-# facture déposée à la main. Contrôle de l'interface
+# obtenue dans chaque langue de l'interface par un administrateur,
+# identifiants enregistrés, sur un brouillon, une facture prête, une facture
+# déposée suspendue, une facture mise en paiement, une facture au dépôt sans
+# réponse et une facture déposée à la main. Contrôle de l'interface
 # (`PartiduoUi::Translations`) : ni marqueur de traduction absente, ni clé
 # brute, ni interpolation non résolue, et toute route atteinte par les liens
 # des pages.
@@ -15,7 +15,7 @@ require "../spec_helper"
 private alias S = Choruspro::SpecSupport
 private alias Api = Choruspro::Api
 
-describe "Traductions des écrans Chorus Pro (fr, en, nl)" do
+describe "Traductions des écrans Chorus Pro (chaque langue de l'interface)" do
   it "rend chaque écran dans chaque langue, sans clé absente, brute ni interpolation non résolue" do
     S.books
     browser = PartiduoUi::Accounts.signed_in

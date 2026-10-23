@@ -1,0 +1,78 @@
+pt:
+  choruspro:
+    module:
+      name: "Chorus Pro (faturas a clientes públicos)"
+    permissions:
+      invoice:
+        read: "Ver as faturas a clientes públicos e o seu estado no Chorus Pro"
+        transmit: "Depositar as faturas no Chorus Pro e consultar o seu estado"
+      settings:
+        manage: "Configurar o Chorus Pro (PISTE, conta técnica)"
+    menu:
+      invoices: "Chorus Pro"
+      settings: "Chorus Pro"
+    statuses:
+      submitted: "Depositada"
+      delivered: "Disponibilizada"
+      paid: "Em pagamento"
+      suspended: "Suspensa"
+      to_recycle: "A reencaminhar"
+      rejected: "Rejeitada"
+    pending:
+      running: "Depósito em curso"
+      uncertain: "Depósito sem resposta, a verificar"
+      accepted: "Depósito aceite, a registar"
+    environments:
+      qualification: "Qualificação (ambiente de testes)"
+      production: "Produção"
+    actions:
+      submitted: "Depósito pela API"
+      status: "Mudança de estado"
+      manual: "Depósito registado manualmente"
+      error: "Erro"
+      payment: "Pagamento conciliado"
+      unpayment: "Conciliação do pagamento anulada"
+      uncertain: "Depósito sem resposta"
+      released: "Reserva libertada"
+    controls:
+      not_chorus_channel: "O canal de emissão deste documento não é o Chorus Pro."
+      siret_missing: "Indique o SIRET do cliente %{customer} na sua ficha: o Chorus Pro identifica a entidade pública pelo seu SIRET."
+      draft: "Rascunho: emita a fatura antes de a depositar."
+      references_hint: "O Chorus Pro pode exigir um número de compromisso (referência de encomenda) e um código de serviço (referência do comprador): preencha-os antes de emitir, são impressos na fatura."
+      already_submitted: "Fatura já depositada no Chorus Pro (estado: %{status})."
+      already_sent: "Fatura já marcada como enviada fora do Chorus Pro."
+      no_transport: "Ligação ao Chorus Pro indisponível: deposite o PDF no portal e depois registe o depósito."
+      no_credentials: "Guarde as credenciais PISTE e a conta técnica nas definições do Chorus Pro."
+      structure_unknown: "O Chorus Pro não conhece nenhuma entidade pública com o SIRET %{siret}."
+      engagement_required: "%{structure} exige um número de compromisso: falta a referência de encomenda da fatura."
+      service_required: "%{structure} exige um código de serviço: falta a referência do comprador da fatura."
+      service_unknown: "O serviço %{service} não existe em %{structure}."
+      recycle_on_portal: "Fatura a reencaminhar: corrija o destinatário ou o serviço no portal Chorus Pro (reencaminhamento, sem novo depósito) e depois consulte o estado."
+      deposit_running: "Depósito em curso no Chorus Pro: aguarde que termine antes de qualquer outra ação."
+      deposit_uncertain: "O Chorus Pro não respondeu ao depósito: verifique no portal se a fatura lá consta. Em caso afirmativo, registe o depósito manualmente; caso contrário, liberte a reserva para a depositar novamente."
+      deposit_accepted: "O Chorus Pro aceitou o depósito (%{remote_id}) mas o seu registo falhou: deposite novamente para o registar, sem novo envio."
+      no_pending: "Nenhum depósito reservado para esta fatura."
+    errors:
+      credentials:
+        client_id: "Indique o identificador da aplicação PISTE."
+        login: "Indique o identificador da conta técnica."
+        env: "Ambiente desconhecido."
+        unreadable: "Credenciais guardadas ilegíveis: introduza-as novamente."
+        client_secret: "Indique o segredo da aplicação PISTE."
+        password: "Indique a palavra-passe da conta técnica."
+        key: "Chave de cifragem PARTIDUO_CHORUSPRO_KEY mal formada (esperados 64 caracteres hexadecimais): corrija a configuração."
+      manual:
+        remote_id: "Número Chorus Pro demasiado longo (no máximo 128 caracteres)."
+      status:
+        no_submission: "Nenhum depósito para esta fatura."
+        not_manual: "Este depósito é acompanhado pela API: consulte o seu estado."
+        not_remote: "Este depósito foi registado manualmente: registe o seu estado."
+        unknown: "Estado desconhecido."
+        reason: "Indique o motivo da rejeição ou da suspensão."
+      deposit:
+        unrecorded: "O Chorus Pro aceitou o depósito (%{remote_id}) mas o seu registo falhou; deposite novamente para o registar, sem novo envio."
+      transport:
+        credentials: "O Chorus Pro recusa as credenciais (PISTE ou conta técnica)."
+        unavailable: "O Chorus Pro não responde; tente novamente mais tarde."
+        refused: "O Chorus Pro recusa a fatura: %{reason}"
+        unknown_invoice: "O Chorus Pro não conhece esta fatura."

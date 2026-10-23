@@ -1,0 +1,78 @@
+de:
+  choruspro:
+    module:
+      name: "Chorus Pro (Rechnungen an öffentliche Auftraggeber)"
+    permissions:
+      invoice:
+        read: "Rechnungen an öffentliche Auftraggeber und ihren Chorus-Pro-Status einsehen"
+        transmit: "Rechnungen auf Chorus Pro hochladen und ihren Status abfragen"
+      settings:
+        manage: "Chorus Pro einrichten (PISTE, technisches Konto)"
+    menu:
+      invoices: "Chorus Pro"
+      settings: "Chorus Pro"
+    statuses:
+      submitted: "Hochgeladen"
+      delivered: "Bereitgestellt"
+      paid: "Zur Zahlung angewiesen"
+      suspended: "Ausgesetzt"
+      to_recycle: "Umzuleiten"
+      rejected: "Zurückgewiesen"
+    pending:
+      running: "Hochladen läuft"
+      uncertain: "Hochladen ohne Antwort, zu prüfen"
+      accepted: "Hochladen angenommen, zu speichern"
+    environments:
+      qualification: "Qualifizierung (Sandbox)"
+      production: "Produktion"
+    actions:
+      submitted: "Hochladen über die API"
+      status: "Statusänderung"
+      manual: "Hochladen manuell vermerkt"
+      error: "Fehler"
+      payment: "Zahlung ausgeglichen"
+      unpayment: "Ausgleich der Zahlung aufgehoben"
+      uncertain: "Hochladen ohne Antwort"
+      released: "Reservierung aufgehoben"
+    controls:
+      not_chorus_channel: "Der Versandkanal dieses Dokuments ist nicht Chorus Pro."
+      siret_missing: "Geben Sie die SIRET des Kunden %{customer} in seinem Stammsatz an: Chorus Pro identifiziert die öffentliche Stelle über ihre SIRET."
+      draft: "Entwurf: Stellen Sie die Rechnung aus, bevor Sie sie hochladen."
+      references_hint: "Chorus Pro kann eine Verpflichtungsnummer (Bestellreferenz) und einen Dienststellencode (Käuferreferenz) verlangen: Geben Sie sie vor der Ausstellung an, sie werden auf die Rechnung gedruckt."
+      already_submitted: "Rechnung bereits auf Chorus Pro hochgeladen (Status: %{status})."
+      already_sent: "Rechnung bereits als außerhalb von Chorus Pro gesendet markiert."
+      no_transport: "Verbindung zu Chorus Pro nicht verfügbar: Laden Sie das PDF im Portal hoch und vermerken Sie dann das Hochladen."
+      no_credentials: "Speichern Sie die PISTE-Zugangsdaten und das technische Konto in den Einstellungen von Chorus Pro."
+      structure_unknown: "Chorus Pro kennt keine öffentliche Stelle mit der SIRET %{siret}."
+      engagement_required: "%{structure} verlangt eine Verpflichtungsnummer: Die Bestellreferenz der Rechnung fehlt."
+      service_required: "%{structure} verlangt einen Dienststellencode: Die Käuferreferenz der Rechnung fehlt."
+      service_unknown: "Die Dienststelle %{service} existiert bei %{structure} nicht."
+      recycle_on_portal: "Rechnung umzuleiten: Korrigieren Sie Empfänger oder Dienststelle im Chorus-Pro-Portal (Umleitung, ohne erneutes Hochladen) und fragen Sie dann den Status ab."
+      deposit_running: "Hochladen auf Chorus Pro läuft: Warten Sie das Ende ab, bevor Sie etwas anderes tun."
+      deposit_uncertain: "Chorus Pro hat auf das Hochladen nicht geantwortet: Prüfen Sie im Portal, ob die Rechnung dort vorhanden ist. Falls ja, vermerken Sie das Hochladen manuell; andernfalls heben Sie die Reservierung auf, um sie erneut hochzuladen."
+      deposit_accepted: "Chorus Pro hat das Hochladen angenommen (%{remote_id}), aber das Speichern ist fehlgeschlagen: Laden Sie erneut hoch, um es zu speichern, ohne erneuten Versand."
+      no_pending: "Kein reserviertes Hochladen für diese Rechnung."
+    errors:
+      credentials:
+        client_id: "Geben Sie die Kennung der PISTE-Anwendung an."
+        login: "Geben Sie die Kennung des technischen Kontos an."
+        env: "Unbekannte Umgebung."
+        unreadable: "Gespeicherte Zugangsdaten unlesbar: Geben Sie sie erneut ein."
+        client_secret: "Geben Sie das Geheimnis der PISTE-Anwendung an."
+        password: "Geben Sie das Passwort des technischen Kontos an."
+        key: "Verschlüsselungsschlüssel PARTIDUO_CHORUSPRO_KEY fehlerhaft (64 Hexadezimalzeichen erwartet): Korrigieren Sie die Konfiguration."
+      manual:
+        remote_id: "Chorus-Pro-Nummer zu lang (höchstens 128 Zeichen)."
+      status:
+        no_submission: "Kein Hochladen für diese Rechnung."
+        not_manual: "Dieses Hochladen wird über die API verfolgt: Fragen Sie seinen Status ab."
+        not_remote: "Dieses Hochladen wurde manuell vermerkt: Vermerken Sie seinen Status."
+        unknown: "Unbekannter Status."
+        reason: "Geben Sie den Grund der Zurückweisung oder Aussetzung an."
+      deposit:
+        unrecorded: "Chorus Pro hat das Hochladen angenommen (%{remote_id}), aber das Speichern ist fehlgeschlagen; laden Sie erneut hoch, um es zu speichern, ohne erneuten Versand."
+      transport:
+        credentials: "Chorus Pro lehnt die Zugangsdaten ab (PISTE oder technisches Konto)."
+        unavailable: "Chorus Pro antwortet nicht; versuchen Sie es später erneut."
+        refused: "Chorus Pro lehnt die Rechnung ab: %{reason}"
+        unknown_invoice: "Chorus Pro kennt diese Rechnung nicht."
