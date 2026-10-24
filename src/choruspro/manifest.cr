@@ -14,12 +14,19 @@
 #   la Comptabilité) — facture réglée, suivi arrêté (D-CPP-002). Le canal,
 #   lui, se relit au dépôt (il reste modifiable jusqu'à l'envoi,
 #   D-INV-016).
+# * Exclusions (D-AMD-042 du cœur) : jamais dans le dossier d'un foyer
+#   (`incompatible_with_kind "household"`, déjà écarté par `INVOICING`,
+#   exclu d'un foyer : la déclaration le dit explicitement) ; seulement au
+#   régime fiscal `fr` (`regimes "fr"`) : Chorus Pro est le portail de
+#   facturation de la sphère publique française.
 Partiduo::Modules.register do
   code "CHORUSPRO"
   name "choruspro.module.name"
   version Choruspro::VERSION
   requires_core "~> 0.1"
   depends_on "INVOICING"
+  incompatible_with_kind "household"
+  regimes "fr"
 
   permission "choruspro.invoice.read"
   permission "choruspro.invoice.transmit"
